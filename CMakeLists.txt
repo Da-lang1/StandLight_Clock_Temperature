@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+project(StandLight)
+
+add_executable(${PROJECT_NAME}
+    ./src/main.cpp
+    ./src/app/Controller/Controller.cpp
+    ./src/app/Service/ClockService.cpp
+    ./src/app/Listener/Listener.cpp
+    ./src/app/View/View.cpp
+    ./src/hw/Button/Button.cpp
+    ./src/app/View/ClockView.cpp
+    ./src/hw/Led/Led.cpp
+    ./src/hw/LCD/LCD.cpp
+    ./src/hw/I2C/I2C.cpp
+    ./src/app/Service/Service.cpp
+    ./src/hw/ClockCheck/ClockCheck.cpp
+
+)
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ./src/app/Listener
+    ./src/app/Controller
+    ./src/app/View
+    ./src/app/ClockService
+    ./src/app/ClockView
+    ./src/hw/Button 
+    ./src/hw/Led
+    ./src/app/Service
+    ./src/hw/LCD
+    ./src/hw/I2C
+    ./src/hw/ClockCheck
+
+)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    -lwiringPi
+)
+
+target_compile_options(${PROJECT_NAME} PUBLIC
+    -Wall
+)
